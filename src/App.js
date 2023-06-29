@@ -1,29 +1,19 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { ownerRoutes, adminRoutes, staffRoutes } from './routes';
-import Layout from './components/Layout/layout';
+import React, { useState } from 'react';
+import Authmiddleware from './routes/Authmiddleware';
+import { ownerRoutes, adminRoutes, staffRoutes, authRoutes } from './routes';
 
 function App() {
+    const user = localStorage.getItem('user');
+    const [routes, setRoutes] = useState([]);
+
     return (
-        <BrowserRouter>
-            <div className="App">
-                <Routes>
-                    {ownerRoutes.map((route, index) => {
-                        const Page = route.component;
-                        return (
-                            <Route
-                                key={index}
-                                path={route.path}
-                                element={
-                                    <Layout>
-                                        <Page />
-                                    </Layout>
-                                }
-                            />
-                        );
-                    })}
-                </Routes>
-            </div>
-        </BrowserRouter>
+        <>
+            {true ? (
+                <Authmiddleware user={user} listRoutes={[...authRoutes, ...ownerRoutes]} />
+            ) : (
+                <Authmiddleware user={user} listRoutes={[...authRoutes]} />
+            )}
+        </>
     );
 }
 

@@ -1,9 +1,15 @@
-function Footer() {
+import React from 'react';
+
+import { Navbar, Nav, NavItem } from 'reactstrap';
+
+const Footer = () => {
     return (
-        <header>
-            <h2>Footer</h2>
-        </header>
+        <Navbar>
+            <Nav navbar>
+                <NavItem>Đây là footer</NavItem>
+            </Nav>
+        </Navbar>
     );
-}
+};
 
 export default Footer;

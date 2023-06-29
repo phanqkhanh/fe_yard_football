@@ -1,0 +1,20 @@
+.bg-login {
+    background-image: url('../assets/images/bg-login.jpg');
+    background-size: 100vw 100vh;
+    padding-right: 100px;
+}
+.eye-password {
+    position: absolute;
+    top: 11px;
+    right: 7px;
+    cursor: pointer;
+}
+.login-error {
+    padding: 8px 10px;
+    background-color: #fbe0e0;
+    margin-bottom: 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ffb2b2;
+    color: red;
+}
